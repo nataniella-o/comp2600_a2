@@ -33,11 +33,7 @@ DEFAULT_PAGINATION = False
 
 MARKUP = ('md',)
 
-STATIC_PATHS = ['extra', 'images']
-EXTRA_PATH_METADATA = {
-    'extra/custom.css': {'path': 'static/custom.css'},
-}
-
+SITEURL = 'https://github.com/nataniella-o/comp2600_a2.git'
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
