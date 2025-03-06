@@ -41,6 +41,7 @@ EXTRA_PATH_METADATA = {
     'theme/css/main.css': {'path': 'theme/css/main.css'},
 }
 
+THEME = "pelican-themes/Flex"
 
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
