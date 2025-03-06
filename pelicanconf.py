@@ -35,5 +35,12 @@ MARKUP = ('md',)
 
 SITEURL = 'https://github.com/nataniella-o/comp2600_a2.git'
 
+STATIC_PATHS = ['theme', 'static', 'extra']
+THEME_STATIC_DIR = 'theme'
+EXTRA_PATH_METADATA = {
+    'theme/css/main.css': {'path': 'theme/css/main.css'},
+}
+
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
