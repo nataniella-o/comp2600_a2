@@ -33,5 +33,11 @@ DEFAULT_PAGINATION = False
 
 MARKUP = ('md',)
 
+STATIC_PATHS = ['extra', 'images']
+EXTRA_PATH_METADATA = {
+    'extra/custom.css': {'path': 'static/custom.css'},
+}
+
+
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
