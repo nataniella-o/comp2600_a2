@@ -61,7 +61,7 @@ Using **Pelican**, a **static site generator**, automates the transformation of 
 ---
 
 ## Step-by-Step Instructions
-### **Step 1️: Setting Up Your Project**
+### **Step 1: Setting Up Your Project**
 1. **Create a project folder `my-resume` and navigate into it:**
    ```sh
    mkdir my-resume 
