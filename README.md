@@ -1,72 +1,146 @@
 # Creating & Hosting a Resume Website for Dummies
-## Purpose
-This document serves as a comprehensive guide to formatting and hosting a resume using **Pelican** and **GitHub Pages**. It is intended for students, developers, and technical writers looking to learn how to create and publish a static site efficiently. 
 
-In addition to providing step-by-step instructions, this README connects **technical writing principles** from *Modern Technical Writing* by Andrew Etter to real-world implementation. It follows best practices for clear, concise, and structured documentation.
+## Purpose
+
+This document serves as a comprehensive guide to formatting and hosting a resume using **Pelican** and **GitHub Pages**.  
+It is intended for **students, developers, and technical writers** looking to learn how to create and publish a static site efficiently.  
 
 By following this guide, you will:  
 ✔️ Format a resume using **Markdown**  
 ✔️ Generate a static website with **Pelican**  
 ✔️ Host the resume **for free** on **GitHub Pages**  
-✔️ Learn about **technical writing best practices** from *Modern Technical Writing*
+✔️ Learn about **technical writing best practices** from *Modern Technical Writing* by Andrew Etter  
+
+Technical writing principles encourage **automation, accessibility, and simplicity** in documentation. This guide follows Etter’s recommendations on **leveraging static site generators** to create structured, maintainable documentation.
+
+---
 
 ## Prerequisites
-Before moving forward, we need to make sure that you have the following things installed:  
+Before moving forward, ensure you have the following installed:  
+
 - **A GitHub account** (for hosting the site)
 - **Basic knowledge of Markdown** (for formatting the resume)
 - **A computer with Python 3 installed** (for running Pelican)
 - **An internet connection** (for deploying the site)
+- **Git installed** (for version control and pushing changes to GitHub)  
+
+Take a look at the `Further Resources & Readings` section for help with any of these steps
+
+### Why Markdown?  
+
+Markdown is a **lightweight** formatting language that is **easier to use** than HTML. It allows for **quick edits, better readability, and seamless conversion** into HTML without requiring extensive technical knowledge.
+
+Example:
+- **Markdown:**  
+  ```markdown
+  # Work Experience
+  - Managed financial reports  
+  - Improved budgeting efficiency by 20%
+  ```
+- **Equivalent HTML:**  
+  ```html
+  <h1>Work Experience</h1>
+  <ul>
+    <li>Managed financial reports</li>
+    <li>Improved budgeting efficiency by 20%</li>
+  </ul>
+  ```
+Using Markdown aligns with Etter’s principle of **keeping documentation simple** and **avoiding unnecessary complexity**.
+
+### Why a Static Website?  
+Static websites **load faster**, require **less maintenance**, and are **more secure** compared to dynamic websites. This follows Etter’s recommendation that **documentation should be hosted in a way that requires minimal manual intervention**.
+
+**Advantages of static websites:**
+- No databases or server-side processing
+- Quick page load speeds
+- Secure hosting through GitHub Pages
+- Automated deployments via version control
+
+Using **Pelican**, a **static site generator**, automates the transformation of Markdown into a fully formatted website.
+
+---
 
 ## Step-by-Step Instructions
-### Step 1: Setting Up Your Project
-Before publishing a resume, we must create a structured project using **Pelican**.
-
-1. Create a project folder and navigate into it:
+### **Step 1️: Setting Up Your Project**
+1. **Create a project folder `my-resume` and navigate into it:**
    ```sh
-   mkdir my-resume && cd my-resume
-2. Create a virtual environment & activate it:
-    ```sh 
-    python3 -m venv pelican-env
-    source pelican-env/bin/activate
-3. Install Pelican and Markdown support:
-    ```sh
-    pip install pelican markdown
+   mkdir my-resume 
+   cd my-resume
+   ```
+2. **Create a virtual environment & activate it:**
+   ```sh 
+   python3 -m venv pelican-env
+   source pelican-env/bin/activate
+   ```
+   **Why use a virtual environment?**  
+   Virtual environments **prevent dependency conflicts** by isolating packages needed for this project.
 
-### Step 2: Creating Your Resume in Markdown
-Instead of using Microsoft Word, you can write your resume in Markdown, a lightweight text format. 
+3. **Install Pelican and Markdown support:**
+   ```sh
+   pip install pelican markdown
+   ```
+   **Etter’s principle of automation** applies here. By using tools like Pelican, we avoid manual HTML writing.
 
-4. Create a file named resume.md inside the content/ folder:
-    ```sh
-    mkdir content
-    touch content/resume.md
-5. Write your resume in Markdown and save it
+---
 
-### Step 3: Initialize Pelican
-6. Run the code below:
-    ```sh
-    pelican-quickstart
-7. Answer the prompts
-8. Place your resume markdown file in the "content/" directory.
+### **Step 2: Creating Your Resume in Markdown**
+4. **Create a `content/` folder and add your resume:**
+   ```sh
+   mkdir content
+   touch content/resume.md
+   ```
+5. **Write your resume in Markdown.**  
+Make sure to include a header at the beginning of each markdown file:
+   ```markdown
+   Title: John Doe
+   Date: 2025-03-06  
+   Category: Resume  
+   Author: John Doe  
+   Summary: Experienced software engineer with expertise in Python and web development.  
+   ```
+This approach follows Etter’s advice to **use structured content formats**, making resumes easy to edit and maintain.
 
-### Step 4: Generating the Static Website
-9. To generate the site, run:
-    ```sh
-    pelican content
-10. To preview locally:
+---
+
+### **Step 3: Initializing Pelican**
+6. **Run Pelican’s quickstart command:**
+   ```sh
+   pelican-quickstart
+   ```
+7. **Answer the prompts:**
+   - **Site title**: `"Your Name's Resume"`  
+   - **Default language**: `"en"`  
+   - **Use a simple theme**: `"Yes"`  
+8. **Place your Markdown resume file in the `content/` directory.**
+
+By automating content generation, Pelican reduces **manual HTML maintenance**, aligning with best practices in modern technical writing.
+
+---
+
+### **Step 4: Generating & Previewing the Static Website**
+9. **Generate the website:**
+   ```sh
+   pelican content
+   ```
+10. **Preview the site locally:**
     ```sh
     pelican --listen
-Then Open http://localhost:8000 in a browser.
+    ```
+11. **Open in a browser:**  
+    Navigate to **`http://localhost:8000`**.
 
-### Step 5: Delploying the Resume to Github Pages
-GitHub Pages requires the generated HTML files to be stored in the repository.  
+Previewing the site before deployment ensures **quality control**, a core technical writing principle.
 
-11. Move the generated files to the root:
+---
+
+### **Step 5: Deploying to GitHub Pages**
+12. **Move the generated files to the root:**
     ```sh
     mv output/* .
     rm -r output
-12. Go to Github, login & create a new repository
-13. Copy the link for the repo (e.g. https://github.com/yourusername/my-resume.git)
-14. Initialize a Git repository and push:
+    ```
+13. **Create a GitHub repository and copy its URL.**
+14. **Initialize a Git repository and push the files:**
     ```sh
     git init
     git add .
@@ -74,46 +148,127 @@ GitHub Pages requires the generated HTML files to be stored in the repository.
     git branch -M main
     git remote add origin https://github.com/yourusername/my-resume.git
     git push -u origin main
-15. Enable GitHub Pages:
-    - Go to GitHub Repository → Settings → Pages.
-    - Select main branch as the source.
-    - Save changes.  
+    ```
+15. **Enable GitHub Pages:**
+    - Go to **GitHub Repository → Settings → Pages**.
+    - Select **main branch** as the source.
+    - Save changes.
 
-    Visit the generation link given at the top of the page.  
-    Congratulations! You should see your resume published on the website. 
+Your resume is now accessible at:  
+**`https://yourusername.github.io/my-resume/`**
+
+This approach follows Etter’s **recommendation of using cloud-based documentation hosting** for accessibility.
+
+---
 
 ## Further Resources & Readings
-1. [Pelican Documentation](https://docs.getpelican.com)
-2. [Markdown Syntax Guide](https://www.markdownguide.org)
-3. [GitHub Pages Guide](https://pages.github.com)
-4. [Andrew Etter’s Modern Technical Writing](https://www.google.com/url?sa=t&source=web&rct=j&opi=89978449&url=https://www.amazon.ca/Modern-Technical-Writing-Introduction-Documentation-ebook/dp/B01A2QL9SS&ved=2ahUKEwjfutm3pvaLAxXkGzQIHVERIIsQFnoECB0QAQ&usg=AOvVaw0yVQfjJ42Dn0-liR2DWbD7)
 
-## Frequently Asked Questions
-### Q1: Why is Markdown better than writing raw HTML?
-- Markdown is simpler, more readable, and can be converted into HTML easily. Unlike Word documents, Markdown files can be used to generate a website without worrying about formatting issues.
-It follows Etter’s principle of minimalism, allowing users to focus on content rather than complex syntax.
+1. **[Pelican Documentation](https://docs.getpelican.com)**
+2. **[Markdown Syntax Guide](https://www.markdownguide.org)**
+3. **[GitHub Pages Guide](https://pages.github.com)**
+4. **[Andrew Etter’s *Modern Technical Writing*](https://www.amazon.ca/Modern-Technical-Writing-Introduction-Documentation-ebook/dp/B01A2QL9SS)**
 
-### Q2: Why doesn’t my website update when I edit resume.md?
-- You need to regenerate the website and push the changes:  
-    ```sh
-    pelican content
-    git add .
-    git commit -m "Updated resume"
-    git push origin main
-### Q3: Can I change the website's theme?
-Yes, you can!
-- Install and apply a new theme:
-    ```sh
-    git clone https://github.com/getpelican/pelican-themes.git
-    pelican-themes --install pelican-themes/Flex
-- Then modify the pelicanconf.py:
-    ```sh
-    THEME = "pelican-themes/Flex"
-- Rebuild the site:
-    ```sh
-    pelican content
-Technical Writing Principle (Etter): Use FAQ sections to preemptively address common user problems.
+Technical writing best practices encourage **providing additional resources** to support learning.
+
+---
+
+## Frequently Asked Questions (FAQ)
+
+### **Q1: Why is Markdown better than writing raw HTML?**
+Markdown is **easier to read, write, and maintain** than raw HTML. Instead of opening and closing tags (`<h1>Title</h1>`), Markdown simplifies the syntax (`# Title`). It also converts automatically into HTML, reducing the chance of errors.
+
+### **Q2: I changed my resume Markdown file, but the website didn't update. Why?**
+Changes do not automatically appear on the website. You must **regenerate and push the updated content**:
+```sh
+pelican content
+git add .
+git commit -m "Updated resume"
+git push origin main
+```
+If changes do not appear, try **clearing the browser cache** (`Ctrl + Shift + R`).
+
+### **Q3: Can I use a different theme for my site?**
+Yes, to install and apply a new theme:
+```sh
+git clone https://github.com/getpelican/pelican-themes.git
+pelican-themes --install pelican-themes/Flex
+```
+Modify `pelicanconf.py`:
+```python
+THEME = "pelican-themes/Flex"
+```
+Rebuild the site:
+```sh
+pelican content
+```
+
+### **Q4: What should I do if I get a 404 error after deploying my resume site?**  
+A **404 error** on GitHub Pages usually means:  
+1. **The website deployment is still in progress.** GitHub Pages may take a few minutes to process changes. Wait a few minutes and refresh the page.  
+2. **The site is being served from the wrong branch.** Ensure GitHub Pages is set to serve from the `main` branch:
+   - Go to **GitHub Repository → Settings → Pages**.
+   - Under **Branch**, select `main`.
+   - Click **Save**.  
+3. **Your `index.html` file is missing.** Run:
+   ```sh
+   pelican content
+   mv output/* .
+   rm -r output
+   git add .
+   git commit -m "Rebuilt site"
+   git push origin main
+   ```
+   Then refresh the page.  
+
+### **Q5: How can I add images to my resume website?**  
+Pelican allows you to **add images** for a more professional website.
+
+**Adding Images:**
+1. Create a folder for images:
+   ```sh
+   mkdir content/images
+   ```
+2. Place your images inside the `images/` folder.
+3. Add an image to your Markdown resume using:
+   ```markdown
+   ![My Profile Picture](images/profile.jpg)
+   ```
+
+### **Q6: Do I need to repeat all the setup steps every time I update my resume?**  
+No, once your website is set up, you only need to **update your Markdown file** and **regenerate the site**.  
+Steps to update your resume:  
+1. **Edit `resume.md`** in the `content/` folder.  
+2. **Rebuild the site:**
+   ```sh
+   pelican content
+   ```
+3. **Push the updated files to GitHub:**
+   ```sh
+   git add .
+   git commit -m "Updated resume"
+   git push origin main
+   ```
+Your website will update automatically after a few minutes.
+
+### **Q7: What if I don’t want to use GitHub Pages? Are there other options?**  
+Yes, you can host your Pelican website on other platforms, such as:  
+- **Netlify** – Supports static site hosting with automated deployment.  
+- **GitLab Pages** – Similar to GitHub Pages but hosted on GitLab.  
+- **Cloudflare Pages** – Offers fast static site hosting with global caching.  
+
+To use these platforms, check their documentation for instructions on setting up static sites.
+
+---
 
 ## Credits
-- Created by Nataniella Ogogo
-- Reviewed by Tofunmi Layi-Babatunde & Kikiola Ojuko
+### **Contributors**  
+- **Nataniella Ogogo** – Author, project setup, and technical writing.  
+- **Tofunmi Layi-Babatunde** – Peer reviewer, technical feedback, FAQ and content edits.  
+- **Kikiola Ojuko** – Peer reviewer, technical feedback, FAQ and content edits.  
+
+### **Third-Party Content**  
+- **Pelican** – Static site generator ([Pelican Project](https://getpelican.com/)).  
+- **GitHub Pages** – Hosting platform ([GitHub Pages](https://pages.github.com/)).  
+- **Pelican Themes** – Website themes ([Pelican Themes Repository](https://github.com/getpelican/pelican-themes)).  
+- **Markdown Guide** – Formatting reference ([Markdown Guide](https://www.markdownguide.org/)).  
+- **Modern Technical Writing** – Reference book ([Amazon Listing](https://www.amazon.ca/Modern-Technical-Writing-Introduction-Documentation-ebook/dp/B01A2QL9SS)).  
